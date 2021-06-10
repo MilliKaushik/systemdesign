@@ -5,9 +5,9 @@ public class PaymentService {
 		return false;
 	}
 
-	public void collectPayment() {
+	public double collectPayment() {
 		// TODO Auto-generated method stub
-		
+		return 0;
 	}
 
 }
