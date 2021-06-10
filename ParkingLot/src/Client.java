@@ -9,10 +9,9 @@ public class Client {
 		BookingService bookingService = new BookingService();
 		ParkingLotService parkingLotService = new ParkingLotService(slotService, bookingService);
 
-		Vehicle vehicle = new Vehicle();
+		Vehicle vehicle = new Vehicle(VehicleType.CAR);
 		vehicle.setId(1);
 		vehicle.setLicencePlate("ABC1234");
-		vehicle.setVehicleType(VehicleType.CAR);
 
 		Booking booking = null;
 		try {

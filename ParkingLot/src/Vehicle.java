@@ -6,6 +6,10 @@ public class Vehicle {
 	private String licencePlate;
 
 	private VehicleType vehicleType;
+	
+	public Vehicle(VehicleType vehicleType) {
+		this.vehicleType = vehicleType;
+	}
 
 	public int getId() {
 		return id;
