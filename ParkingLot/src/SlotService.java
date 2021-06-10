@@ -13,7 +13,7 @@ public class SlotService {
 		xLargeSlot = new Stack<>();
 	}
 
-	public Slot bookSlot(Vehicle vehicle) {
+	public synchronized Slot bookSlot(Vehicle vehicle) {
 		Slot slot = null;
 		switch (vehicle.getVehicleType()) {
 		case MOTORCYCLE:

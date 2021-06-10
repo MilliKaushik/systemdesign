@@ -1,6 +1,9 @@
 
 public class Client {
 
+	// There are multiple buildings and hence, multiple entrances and
+	// hence,concurrency issues can occur while booking slots.
+	// Made the bookSlot API in SlotService synchronized. Is this enough?
 	public static void main(String[] args) {
 		SlotService slotService = new SlotService();
 		BookingService bookingService = new BookingService();
