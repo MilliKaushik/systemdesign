@@ -7,22 +7,19 @@ public class Game {
 
 	int id;
 
-	List<Player> players;
+	List<PlayerState> playerStates;
 
 	Date beginTime;
 
 	Date endTime;
 
-	GameStatus gameStatus;
-
 	Player winner;
 
 	Board board;
 
-	public Game(List<Player> players, Date beginTime, GameStatus gameStatus, Board board) {
-		this.players = players;
+	public Game(List<PlayerState> playerStates, Date beginTime, Board board) {
+		this.playerStates = playerStates;
 		this.beginTime = beginTime;
-		this.gameStatus = gameStatus;
 		this.board = board;
 	}
 
@@ -32,14 +29,6 @@ public class Game {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public List<Player> getPlayers() {
-		return players;
-	}
-
-	public void setPlayers(List<Player> players) {
-		this.players = players;
 	}
 
 	public Date getBeginTime() {
@@ -58,14 +47,6 @@ public class Game {
 		this.endTime = endTime;
 	}
 
-	public GameStatus getGameStatus() {
-		return gameStatus;
-	}
-
-	public void setGameStatus(GameStatus gameStatus) {
-		this.gameStatus = gameStatus;
-	}
-
 	public Player getWinner() {
 		return winner;
 	}
@@ -81,5 +62,4 @@ public class Game {
 	public void setBoard(Board board) {
 		this.board = board;
 	}
-
 }

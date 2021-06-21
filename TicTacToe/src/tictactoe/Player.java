@@ -6,10 +6,6 @@ public class Player {
 
 	String phoneNumber;
 
-	Game game;
-
-	PlayerSymbol playerSymbol;
-
 	public int getId() {
 		return id;
 	}
@@ -25,21 +21,4 @@ public class Player {
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-
-	public Game getGame() {
-		return game;
-	}
-
-	public void setGame(Game game) {
-		this.game = game;
-	}
-
-	public PlayerSymbol getPlayerSymbol() {
-		return playerSymbol;
-	}
-
-	public void setPlayerSymbol(PlayerSymbol playerSymbol) {
-		this.playerSymbol = playerSymbol;
-	}
-
 }

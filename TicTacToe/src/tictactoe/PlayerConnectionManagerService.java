@@ -1,12 +1,17 @@
 package tictactoe;
 
+import java.util.Map;
+
 public class PlayerConnectionManagerService {
 
-	public PlayerService getPlayerService(Player player) {
-		return null;
+	Map<Player, PlayerConnection> playerConnectionMap; // might be fetching from db
+
+	public PlayerConnection getPlayerConnection(Player player) {
+		return playerConnectionMap.get(player);
 	}
 
-	public void createPlayerService(Player player) {
-		
+	public void createPlayerConnection(Player player) {
+		PlayerConnection playerConnection = new PlayerConnection();
+		playerConnectionMap.put(player, playerConnection);
 	}
 }

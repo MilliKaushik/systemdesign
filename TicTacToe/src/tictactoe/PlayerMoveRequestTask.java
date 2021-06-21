@@ -2,24 +2,24 @@ package tictactoe;
 
 import java.util.concurrent.Callable;
 
-public class PlayerMoveRequestTask implements Callable<Position> {
+public class PlayerMoveRequestTask implements Callable<Move> {
 
-	PlayerService playerService;
+	PlayerConnectionManagerService playerConnectionManagerService;
 
 	Player player;
 
 	Board board;
 
-	public PlayerMoveRequestTask(PlayerService playerService, Player player, Board board) {
-		this.playerService = playerService;
+	public PlayerMoveRequestTask(Player player, Board board) {
 		this.player = player;
 		this.board = board;
 	}
 
 	@Override
-	public Position call() throws Exception {
-		Position position = playerService.requestPlayerForMove(player, board);
-		return position;
+	public Move call() throws Exception {
+		PlayerConnection playerConnection = playerConnectionManagerService.getPlayerConnection(player);
+		playerConnection.sendMessage(message);
+		return move;
 	}
 
 }

@@ -1,6 +1,6 @@
 package tictactoe;
 
-public class Position {
+public class Move {
 
 	int row;
 
