@@ -4,20 +4,17 @@ import java.util.List;
 
 public class MoveValidityChecker {
 
-	public void isValidMove(Player player, Position posToBeChecked) {
-		Board latestBoard = .getLatestBoardState(player.getGame());
-		List<List<PositionState>> boardPositions = latestBoard.getBoardState();
+	public void isValidMove(PlayerState playerState, Move move) throws InvalidMoveException {
+		Board latestBoard = playerState.getGame().getBoard();
+		List<List<TicTacToeSymbol>> boardPositions = latestBoard.getBoardState();
 
-		int row = posToBeChecked.getRow();
-		int col = posToBeChecked.getCol();
+		int row = move.getRow();
+		int col = move.getCol();
 
-		PositionState posState = boardPositions.get(row).get(col);
-		if (!posState.equals(PositionState.UNFILLED))
-			//return false;
-		if (player.getPlayerSymbol().equals(PlayerSymbol.CROSS) && (!posState.equals(PositionState.CROSSED)))
-			//return false;
-
-		if (player.getPlayerSymbol().equals(PlayerSymbol.CIRCLE) && (!posState.equals(PositionState.CIRCLED)))
-			//return false;
+		TicTacToeSymbol symbol = boardPositions.get(row).get(col);
+		if (!symbol.equals(TicTacToeSymbol.UNFILLED))
+			throw new InvalidMoveException("No move made!");
+		if (symbol.equals(playerState.getTicTacToeSymbol()))
+			throw new InvalidMoveException("Incorrect move made!");
 	}
 }

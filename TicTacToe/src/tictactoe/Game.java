@@ -51,6 +51,14 @@ public class Game {
 		return winner;
 	}
 
+	public List<PlayerState> getPlayerStates() {
+		return playerStates;
+	}
+
+	public void setPlayerStates(List<PlayerState> playerStates) {
+		this.playerStates = playerStates;
+	}
+
 	public void setWinner(Player winner) {
 		this.winner = winner;
 	}

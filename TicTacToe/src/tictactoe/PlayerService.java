@@ -1,35 +1,34 @@
 package tictactoe;
 
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
 
 public class PlayerService {
-	
+
+	PlayerConnectionManagerService playerConnectionManagerService;
+
+	MessageCreator messageCreator;
+
 	ExecutorService executorService = Executors.newFixedThreadPool(2);
 
-	public Move getPlayerMove(Player player, Board board) throws PlayerMoveTimeoutException {
-		PlayerMoveRequestTask task = new PlayerMoveRequestTask(player, board);
-		Future<Move> futurePosition = executorService.submit(task);
-		Move position = null;
+	public Move getPlayerMove(Game game, PlayerState playerState) throws PlayerMoveTimeoutException {
+		PlayerConnection playerConnection = playerConnectionManagerService.getPlayerConnection(playerState.getPlayer());
+		Message message = messageCreator.createMessage(MessageAction.REQUEST_MOVE, game, playerState);
+		playerConnection.sendMessage(message);
 
-		// if player doesn't respond in 10 seconds, cancel the task
-		try {
-			position = futurePosition.get(10000, TimeUnit.MILLISECONDS);
-		} catch (InterruptedException | ExecutionException | TimeoutException e) {
-			e.printStackTrace();
-			futurePosition.cancel(true);
-			throw new PlayerMoveTimeoutException("Player didn't respond on time");
-		}
+		// listen for message from this player connection and send back
+		// this method is synchronous and blocking in nature
+//when you receive message from this connection/session send back the response
+		Move move = null;
 
-		return position;
+		return move;
 	}
 
-	public void notifyGameInfoToPlayer(Player player) {
-//you have been assigned this symbol and this is the game id
+	public void notifyGameInfoToPlayer(Game game, PlayerState playerState) {
+		PlayerConnection playerConnection = playerConnectionManagerService.getPlayerConnection(playerState.getPlayer());
+
+		Message message = messageCreator.createMessage(MessageAction.INIT, game, playerState);
+		playerConnection.sendMessage(message);
 	}
 
 	public Player getPlayer(int playerId) {

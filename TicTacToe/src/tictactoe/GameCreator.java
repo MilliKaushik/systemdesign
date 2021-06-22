@@ -1,7 +1,6 @@
 package tictactoe;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -13,7 +12,7 @@ import java.util.List;
 //stateless application, we need to keep the state stored in db, and hence have tables like game etc in db.
 //If we want a stateful application, the state is in memory.
 public class GameCreator {
-
+//no singleton
 	PlayerService playerService;
 
 	public Game createGame(GameRequest gameRequest1, GameRequest gameRequest2) {
@@ -33,10 +32,6 @@ public class GameCreator {
 		playerState2.setTicTacToeSymbol(TicTacToeSymbol.CIRCLE);
 
 		Game game = new Game(playerStates, new Date(), new Board());
-
-		for (Player p : players) {
-			playerService.notifyGameInfoToPlayer(p);
-		}
 		return game;
 	}
 }

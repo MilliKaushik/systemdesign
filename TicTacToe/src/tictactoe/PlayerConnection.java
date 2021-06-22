@@ -53,6 +53,7 @@ package tictactoe;
 
 public class PlayerConnection {
 
+	// should session be passed as parameter too?
 	public void sendMessage(Message message) {
 //websocket.sendObject(message)
 	}
@@ -60,6 +61,7 @@ public class PlayerConnection {
 	public void receiveMessage() {
 //while(true) {
 		// Message msg = (Message) websocket.getObject();
+		// handle(msg)
 		// }
 	}
 }

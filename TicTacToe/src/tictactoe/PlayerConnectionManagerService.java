@@ -4,7 +4,7 @@ import java.util.Map;
 
 public class PlayerConnectionManagerService {
 
-	Map<Player, PlayerConnection> playerConnectionMap; // might be fetching from db
+	Map<Player, PlayerConnection> playerConnectionMap; // might be fetching connections from db
 
 	public PlayerConnection getPlayerConnection(Player player) {
 		return playerConnectionMap.get(player);

@@ -1,5 +1,5 @@
 package tictactoe;
 
 public enum BoardStatus {
-	CREATED, ONGOING, ENDED
+	CREATED, ONGOING, DRAW, NO_DRAW
 }

@@ -6,7 +6,7 @@ import java.util.List;
 public class Board {
 
 	private static final int BOARD_SIZE = 3;
-	
+
 	BoardStatus boardStatus;
 
 	List<List<TicTacToeSymbol>> boardState;
@@ -20,6 +20,14 @@ public class Board {
 
 	public Board(Move position, TicTacToeSymbol ticTacToeSymbol) {
 		boardState.get(position.getRow()).set(position.getCol(), TicTacToeSymbol.CROSS);
+	}
+
+	public BoardStatus getBoardStatus() {
+		return boardStatus;
+	}
+
+	public void setBoardStatus(BoardStatus boardStatus) {
+		this.boardStatus = boardStatus;
 	}
 
 	public List<List<TicTacToeSymbol>> getBoardState() {

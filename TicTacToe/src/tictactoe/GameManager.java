@@ -1,6 +1,7 @@
 package tictactoe;
 
 import java.util.Date;
+import java.util.List;
 
 public class GameManager {
 
@@ -10,61 +11,60 @@ public class GameManager {
 
 	MoveValidityChecker moveValidityChecker;
 
-	GameStatusChecker gameStatusChecker;
+	GameStatusUpdater gameStatusUpdater;
+
+	public void notifyPlayers(Game game) {
+		List<PlayerState> playerStates = game.getPlayerStates();
+
+		for (PlayerState playerState : playerStates)
+			playerService.notifyGameInfoToPlayer(game, playerState);
+	}
 
 	public void play(Game game) {
 		Board board = game.getBoard();
-		int i = 0;
 
-		// while gamesttauschecker in progress
-		while (board.getBoardState() == BoardStatus.ONGOING) {
-			Player currentPlayer = game.getPlayers().get(i);
-			Move pos = null;
+		int i = 0;
+		// while gameStatusChecker in progress
+		while (board.getBoardStatus().equals(BoardStatus.ONGOING)) {
+			// Player currentPlayer = game.getPlayerStates().get(i).getPlayer();
+			Move move = null;
 
 			int count = RETRY_ATTEMPT;
 
-			while (pos == null && count-- != 0)
+			while (move == null && count-- > 0) {
 				try {
-					pos = playerService.getPlayerMove(currentPlayer, board);
-				} catch (PlayerMoveTimeoutException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					move = playerService.getPlayerMove(game, game.getPlayerStates().get(i));
+					moveValidityChecker.isValidMove(game.getPlayerStates().get(i), move);
+				} catch (PlayerMoveTimeoutException | InvalidMoveException ex) {
+					count--;
+					move = null;
+					handle(game, count, ex);
 				}
-			// try -catch handle invalidmoveexception here
-//			try {
-//		        moveValidityChecker.isValidMove(currentPlayer, pos);
-//		    	pos = null;
-//		    } catch(Invalid)
-//		
+			}
+			gameStatusUpdater.updateBoard(game, game.getPlayerStates().get(i).getPlayer(), move);
 
-			// NoResponseFromPlayerException
-//		} catch (PlayerMoveTimeoutException e) {
-//			e.printStackTrace();
-//			hasEnded = true;
-
-			// update game status method
-			if (gameStatusChecker.checkIfWinningMove(game, currentPlayer, pos)) {
-				hasEnded = true;
-				game.setWinner(currentPlayer);
-				endGame(game, BoardStatus.ENDED_SUCCESS);
+			if (game.getBoard().getBoardStatus().equals(BoardStatus.NO_DRAW)) {
+				System.out.println("The winner is " + game.getWinner());
+				return;
+			} else if (game.getBoard().getBoardStatus().equals(BoardStatus.DRAW)) {
+				System.out.println("The game is drawn!");
+				return;
 			}
 
-			// if game ended but we don't have a winner
-			if (gameStatusChecker.checkIfGameEnded(game)) {
-				hasEnded = true;
-				endGame(game, BoardStatus.ENDED_INVALID);
-			}
-
+			i = i ^ 1;
 		}
-//alternate between the two players
-		if (i == 0)
-			i = 1;
-		else if (i == 1)
-			i = 0;
+		// alternate between the two players
+		// if arguments are same, xor gives result as false or 0, if arguments are
+		// different, only then xor gives result as true or 1
 	}
 
-	public void endGame(Game game, BoardStatus gameStatus) {
+	private void handle(Game game, int count, PlayerMoveException ex) {
+		if (count <= 0) 
+			endGame(game, BoardStatus.DRAW);
+	}
+
+	public void endGame(Game game, BoardStatus boardStatus) {
 		game.setEndTime(new Date());
-		game.setGameStatus(gameStatus);
+		game.getBoard().setBoardStatus(boardStatus);
 	}
 }

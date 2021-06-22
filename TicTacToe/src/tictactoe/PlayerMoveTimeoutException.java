@@ -1,6 +1,6 @@
 package tictactoe;
 
-public class PlayerMoveTimeoutException extends Exception {
+public class PlayerMoveTimeoutException extends PlayerMoveException {
 
 	/**
 	 * 
