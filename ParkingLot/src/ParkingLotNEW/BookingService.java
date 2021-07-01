@@ -5,10 +5,10 @@ import java.util.Map;
 
 public class BookingService {
 
-	private Map<Integer, Booking> slotBookingMaping;
+	private Map<Integer, Booking> slotBookingMapping;
 
 	public BookingService() {
-		slotBookingMaping = new HashMap<>();
+		slotBookingMapping = new HashMap<>();
 	}
 
 	public Booking createBooking(Slot slot, Vehicle vehicle) {
@@ -17,11 +17,11 @@ public class BookingService {
 		booking.setSlotId(slot.getId());
 		booking.setTimeOfBooking(new Date());
 		booking.setVehicleId(vehicle.getId());
-		slotBookingMaping.put(slot.getId(), booking);
+		slotBookingMapping.put(slot.getId(), booking);
 		return booking;
 	}
 
 	public void removeBooking(Booking booking) {
-		slotBookingMaping.remove(booking.getSlotId());
+		slotBookingMapping.remove(booking.getSlotId());
 	}
 }
