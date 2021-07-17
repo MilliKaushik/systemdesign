@@ -1,20 +1,20 @@
-import iteratorPattern.BrowseHistory;
-import iteratorPattern.Iterator;
-import mementoPattern.Editor;
-import mementoPattern.History;
-import statePattern.Canvas;
-import statePattern.SelectionTool;
-import strategyPattern.BlackAndWhiteFilter;
-import strategyPattern.Compressor;
-import strategyPattern.Filter;
-import strategyPattern.ImageStorage1;
-import strategyPattern.ImageStorage2;
-import strategyPattern.JPEGCompressor;
-import strategyPattern.PNGCompressor;
-import templatePattern.AuditTrail;
-import templatePattern.GenerateReport3;
-import templatePattern.Task3;
-import templatePattern.TransferMoneyTask3;
+import iterator.BrowseHistory;
+import iterator.Iterator;
+import memento.Editor;
+import memento.History;
+import state.Canvas;
+import state.SelectionTool;
+import strategy.BlackAndWhiteFilter;
+import strategy.Compressor;
+import strategy.Filter;
+import strategy.ImageStorage1;
+import strategy.ImageStorage2;
+import strategy.JPEGCompressor;
+import strategy.PNGCompressor;
+import template.AuditTrail;
+import template.GenerateReport3;
+import template.Task3;
+import template.TransferMoneyTask3;
 
 public class MainDesignPattern {
 

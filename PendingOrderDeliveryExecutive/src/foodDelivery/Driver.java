@@ -28,7 +28,6 @@ public class Driver {
 		List<Order> orders = new ArrayList<>();
 		List<DeliveryExecutive> deliveryExecutives = new ArrayList<>();
 		
-		Order order1 = 
-
+		
 	}
 }
