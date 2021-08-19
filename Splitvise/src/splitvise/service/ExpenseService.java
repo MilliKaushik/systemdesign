@@ -1,6 +1,7 @@
 package splitvise.service;
 
-import splitvise.ExpenseType;
+import splitvise.dao.ExpenseDAO;
+import splitvise.enumeration.ExpenseType;
 import splitvise.model.Expense;
 import splitvise.model.ExpenseRequest;
 import splitvise.service.validator.ExpenseSplitValidator;
@@ -12,6 +13,15 @@ public class ExpenseService {
 	private ExpenseSplitValidatorFactory expenseSplitValidatorFactory;
 
 	private ExpenseCalculatorFactory expenseCalculatorFactory;
+
+	private ExpenseDAO expenseDAO;
+
+	public ExpenseService(ExpenseSplitValidatorFactory expenseSplitValidatorFactory,
+			ExpenseCalculatorFactory expenseCalculatorFactory, ExpenseDAO expenseDAO) {
+		this.expenseSplitValidatorFactory = expenseSplitValidatorFactory;
+		this.expenseCalculatorFactory = expenseCalculatorFactory;
+		this.expenseDAO = expenseDAO;
+	}
 
 	public Expense createExpense(ExpenseRequest expenseRequest) {
 		ExpenseType expenseType = expenseRequest.getExpenseType();
@@ -26,6 +36,7 @@ public class ExpenseService {
 		ExpenseCalculator expenseCalculator = expenseCalculatorFactory.createExpenseCalculator(expenseType);
 		Expense expense = expenseCalculator.calculateExpense(expenseRequest);
 
+		expenseDAO.save(expense);
 		return expense;
 	}
 

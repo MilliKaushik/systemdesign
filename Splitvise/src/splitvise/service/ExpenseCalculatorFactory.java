@@ -1,6 +1,6 @@
 package splitvise.service;
 
-import splitvise.ExpenseType;
+import splitvise.enumeration.ExpenseType;
 
 public class ExpenseCalculatorFactory {
 

@@ -3,13 +3,13 @@ package splitvise.model;
 import java.util.Date;
 import java.util.List;
 
-import splitvise.ExpenseType;
+import splitvise.enumeration.ExpenseType;
 
 public class ExpenseRequest {
 
-	private int createdBy;
+	private String createdBy;
 
-	private int expenseBy;
+	private String expenseBy;
 
 	private double totalAmount;
 
@@ -19,19 +19,19 @@ public class ExpenseRequest {
 
 	private Date expenseDate;
 
-	public int getCreatedBy() {
+	public String getCreatedBy() {
 		return createdBy;
 	}
 
-	public void setCreatedBy(int createdBy) {
+	public void setCreatedBy(String createdBy) {
 		this.createdBy = createdBy;
 	}
 
-	public int getExpenseBy() {
+	public String getExpenseBy() {
 		return expenseBy;
 	}
 
-	public void setExpenseBy(int expenseBy) {
+	public void setExpenseBy(String expenseBy) {
 		this.expenseBy = expenseBy;
 	}
 

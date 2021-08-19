@@ -2,25 +2,31 @@ package splitvise.model;
 
 public class Balance {
 
-	private int owedBy;
+	private String owedBy;
 
-	private int owedTo;
+	private String owedTo;
 
 	private double amount;
 
-	public int getOwedBy() {
+	public Balance(String owedBy, String owedTo, double amount) {
+		this.owedBy = owedBy;
+		this.owedTo = owedTo;
+		this.amount = amount;
+	}
+
+	public String getOwedBy() {
 		return owedBy;
 	}
 
-	public void setOwedBy(int owedBy) {
+	public void setOwedBy(String owedBy) {
 		this.owedBy = owedBy;
 	}
 
-	public int getOwedTo() {
+	public String getOwedTo() {
 		return owedTo;
 	}
 
-	public void setOwedTo(int owedTo) {
+	public void setOwedTo(String owedTo) {
 		this.owedTo = owedTo;
 	}
 

@@ -1,4 +1,4 @@
-package splitvise;
+package splitvise.enumeration;
 
 public enum ExpenseType {
 

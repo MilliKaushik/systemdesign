@@ -1,20 +1,22 @@
-package splitvise.model;
+package trello;
 
-public class User {
+public class Member {
 
-	private String id;
+	private int id;
 
 	private String name;
 
 	private String email;
 
-	private String phoneNo;
+	public Member(String name) {
+		this.name = name;
+	}
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -32,14 +34,6 @@ public class User {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public String getPhoneNo() {
-		return phoneNo;
-	}
-
-	public void setPhoneNo(String phoneNo) {
-		this.phoneNo = phoneNo;
 	}
 
 }

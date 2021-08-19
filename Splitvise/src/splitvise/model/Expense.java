@@ -3,15 +3,15 @@ package splitvise.model;
 import java.util.Date;
 import java.util.List;
 
-import splitvise.ExpenseType;
+import splitvise.enumeration.ExpenseType;
 
 public class Expense {
 
 	private int id;
 
-	private int createdBy;
+	private String createdBy;
 
-	private int expenseBy;
+	private String expenseBy;
 
 	private Date expenseDate;
 
@@ -31,19 +31,19 @@ public class Expense {
 		this.id = id;
 	}
 
-	public int getCreatedBy() {
+	public String getCreatedBy() {
 		return createdBy;
 	}
 
-	public void setCreatedBy(int createdBy) {
+	public void setCreatedBy(String createdBy) {
 		this.createdBy = createdBy;
 	}
 
-	public int getExpenseBy() {
+	public String getExpenseBy() {
 		return expenseBy;
 	}
 
-	public void setExpenseBy(int expenseBy) {
+	public void setExpenseBy(String expenseBy) {
 		this.expenseBy = expenseBy;
 	}
 

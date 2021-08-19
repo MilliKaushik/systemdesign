@@ -2,15 +2,15 @@ package splitvise.model;
 
 public class UserExactShare {
 
-	private int userId;
+	private String userId;
 
 	private double amount;
 
-	public int getUserId() {
+	public String getUserId() {
 		return userId;
 	}
 
-	public void setUserId(int userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 
