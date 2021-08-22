@@ -1,16 +1,11 @@
+package libraryManagementSystem;
 
-public class User {
-
-	private int id;
+public class Publisher {
 
 	private String name;
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
+	public Publisher(String name) {
+		this.name = name;
 	}
 
 	public String getName() {

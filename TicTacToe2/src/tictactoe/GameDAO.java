@@ -6,16 +6,13 @@ public class GameDAO {
 		// save game
 		return 0;
 	}
-	
+
 	public void updateGame(Game game) {
-		
+
 	}
 
 	public Game getGame(int id) {
 		return null;
 	}
-	 
-	
-	
 
 }

@@ -1,5 +1,5 @@
 package tictactoe;
 
 public enum Symbol {
-	DOUGH, CROSS
+	NOUGHT, CROSS, EMPTY
 }

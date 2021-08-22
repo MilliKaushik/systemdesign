@@ -2,24 +2,24 @@ package tictactoe;
 
 public class Position {
 
-	private int x;
+	private int row;
 
-	private int y;
+	private int col;
 
-	public int getX() {
-		return x;
+	public int getRow() {
+		return row;
 	}
 
-	public void setX(int x) {
-		this.x = x;
+	public void setRow(int row) {
+		this.row = row;
 	}
 
-	public int getY() {
-		return y;
+	public int getCol() {
+		return col;
 	}
 
-	public void setY(int y) {
-		this.y = y;
+	public void setCol(int col) {
+		this.col = col;
 	}
 
 }

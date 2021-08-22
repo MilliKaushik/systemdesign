@@ -1,5 +1,6 @@
+package libraryManagementSystem;
 
-public class User {
+public class UserRequest {
 
 	private int id;
 

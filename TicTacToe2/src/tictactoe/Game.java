@@ -6,17 +6,13 @@ import java.util.List;
 
 public class Game {
 
-	private static int BOARD_SIZE = 3;
-
 	private int id;
 
-	private int playerId1;
-
-	private int playerId2;
+	private List<PlayerSymbol> playerSymbols;
 
 	private Date creationTime;
 
-	private Date updateTime;
+	private Date endTime;
 
 	private List<Move> moves;
 
@@ -24,14 +20,14 @@ public class Game {
 
 	private GameStatus gameStatus;
 
-	public Game(int playerId1, int playerId2, Date creationTime, Date updateTime) {
-		this.playerId1 = playerId1;
-		this.playerId2 = playerId2;
+	private int winnerPlayerId;
+
+	public Game(List<PlayerSymbol> playerSymbols, Date creationTime, int boardSize) {
+		this.playerSymbols = playerSymbols;
 		this.creationTime = creationTime;
-		this.updateTime = updateTime;
 		this.moves = new ArrayList<>();
-		this.board = new Symbol[BOARD_SIZE][BOARD_SIZE];
 		this.gameStatus = GameStatus.STARTED;
+		board = new Symbol[boardSize][boardSize];
 	}
 
 	public int getId() {
@@ -42,20 +38,12 @@ public class Game {
 		this.id = id;
 	}
 
-	public int getPlayerId1() {
-		return playerId1;
+	public List<PlayerSymbol> getPlayerSymbols() {
+		return playerSymbols;
 	}
 
-	public void setPlayerId1(int playerId1) {
-		this.playerId1 = playerId1;
-	}
-
-	public int getPlayerId2() {
-		return playerId2;
-	}
-
-	public void setPlayerId2(int playerId2) {
-		this.playerId2 = playerId2;
+	public void setPlayerSymbols(List<PlayerSymbol> playerSymbols) {
+		this.playerSymbols = playerSymbols;
 	}
 
 	public Date getCreationTime() {
@@ -66,12 +54,12 @@ public class Game {
 		this.creationTime = creationTime;
 	}
 
-	public Date getUpdateTime() {
-		return updateTime;
+	public Date getEndTime() {
+		return endTime;
 	}
 
-	public void setUpdateTime(Date updateTime) {
-		this.updateTime = updateTime;
+	public void setEndTime(Date endTime) {
+		this.endTime = endTime;
 	}
 
 	public List<Move> getMoves() {
@@ -96,6 +84,14 @@ public class Game {
 
 	public void setGameStatus(GameStatus gameStatus) {
 		this.gameStatus = gameStatus;
+	}
+
+	public int getWinnerPlayerId() {
+		return winnerPlayerId;
+	}
+
+	public void setWinnerPlayerId(int winnerPlayerId) {
+		this.winnerPlayerId = winnerPlayerId;
 	}
 
 }

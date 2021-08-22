@@ -6,7 +6,7 @@ public class Move {
 
 	private int id;
 
-	private int playerId1;
+	private PlayerSymbol playerSymbol;
 
 	private Date timeOfMove;
 
@@ -22,12 +22,12 @@ public class Move {
 		this.id = id;
 	}
 
-	public int getPlayerId1() {
-		return playerId1;
+	public PlayerSymbol getPlayerSymbol() {
+		return playerSymbol;
 	}
 
-	public void setPlayerId1(int playerId1) {
-		this.playerId1 = playerId1;
+	public void setPlayerSymbol(PlayerSymbol playerSymbol) {
+		this.playerSymbol = playerSymbol;
 	}
 
 	public Date getTimeOfMove() {
