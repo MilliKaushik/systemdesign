@@ -22,10 +22,9 @@ public class TaskDAO {
 		if (userToTasksByTaskType.containsKey(task.getAssigneeName())) {
 			Map<TaskType, List<Task>> taskTypeToTask = userToTasksByTaskType.get(task.getAssigneeName());
 			List<Task> tasks = taskTypeToTask.get(task.getTaskType());
-			if (tasks == null || tasks.isEmpty()) {
+			if (tasks == null || tasks.isEmpty())
 				tasks = new ArrayList<>();
-				tasks.add(task);
-			}
+			tasks.add(task);
 			taskTypeToTask.put(task.getTaskType(), tasks);
 			userToTasksByTaskType.put(task.getAssigneeName(), taskTypeToTask);
 		} else {

@@ -43,9 +43,8 @@ public class Driver {
 			case "exit":
 				break;
 			}
-			// sc.close();
 		}
-
+		//sc.close();
 	}
 
 }

@@ -29,7 +29,6 @@ public class TaskService {
 			return taskDAO.updateTask(task);
 		} else
 			throw new TaskStatusNotAllowedForTaskTypeException();
-
 	}
 
 	public void changeAssigneeName(String taskName, String newAssigneeName) {

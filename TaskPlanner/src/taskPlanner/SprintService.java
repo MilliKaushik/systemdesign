@@ -9,7 +9,6 @@ public class SprintService {
 	private SprintDAO sprintDAO;
 
 	public SprintService(TaskService taskService, SprintDAO sprintDAO) {
-
 		this.taskService = taskService;
 		this.sprintDAO = sprintDAO;
 	}
@@ -25,6 +24,7 @@ public class SprintService {
 	public void endSprint(String sprintName) {
 		Sprint sprint = getSprint(sprintName);
 		sprint.setEndDate(new Date());
+		//sprintDAO.update(sprint);
 	}
 
 	public void addTaskToSprint(String sprintName, String taskName)
