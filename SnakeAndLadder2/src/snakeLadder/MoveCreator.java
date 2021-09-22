@@ -12,5 +12,4 @@ public class MoveCreator {
 		move.setStartPos(playerPosition.getPosition());
 		return move;
 	}
-
 }

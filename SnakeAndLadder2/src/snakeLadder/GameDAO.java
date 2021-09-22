@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class GameDAO {
 
-	private Map<Integer, Game> games;
+	private Map<String, Game> games;
 
 	public GameDAO() {
 		games = new HashMap<>();
@@ -15,7 +15,7 @@ public class GameDAO {
 		games.put(game.getId(), game);
 	}
 
-	public Game getGame(int id) {
+	public Game getGame(String id) {
 		return games.get(id);
 	}
 

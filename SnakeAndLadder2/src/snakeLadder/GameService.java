@@ -47,13 +47,13 @@ public class GameService {
 		return turn;
 	}
 
-	public void endGame(int gameId) {
+	public void endGame(String gameId) {
 		Game game = getGame(gameId);
 		game.setEndTime(new Date());
 		gameDAO.update(game);
 	}
 
-	public Game getGame(int gameId) {
+	public Game getGame(String gameId) {
 		return gameDAO.getGame(gameId);
 	}
 }

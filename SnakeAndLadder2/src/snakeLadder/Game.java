@@ -3,10 +3,11 @@ package snakeLadder;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 public class Game {
 
-	private int id;
+	private String id;
 
 	private Date startTime;
 
@@ -23,6 +24,7 @@ public class Game {
 	private List<Player> players;
 
 	public Game(Board board, List<Player> players) {
+		this.id = UUID.randomUUID().toString();
 		this.board = board;
 		this.players = players;
 		this.gameStatus = GameStatus.STARTED;
@@ -30,11 +32,11 @@ public class Game {
 		moves = new ArrayList<>();
 	}
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
