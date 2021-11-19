@@ -17,5 +17,4 @@ public class LibraryDAO {
 		int id = IdGenerator.generateId(library);
 		libraryIdToLibrary.put(id, library);
 	}
-
 }

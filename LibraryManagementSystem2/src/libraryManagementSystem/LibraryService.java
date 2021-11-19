@@ -65,7 +65,8 @@ public class LibraryService {
 	private List<BookCopy> createBookCopies(AddBookRequest addBookRequest, Book book) {
 		// creating all the book copies
 		List<BookCopy> bookCopies = new ArrayList<>();
-		for (String bookCopyId : addBookRequest.getBookCopies()) {
+		List<String> newBookCopies = addBookRequest.getBookCopies();
+		for (String bookCopyId : newBookCopies) {
 			BookCopy bookCopy = new BookCopy(bookCopyId, book.getBookId());
 			bookCopies.add(bookCopy);
 			bookCopyService.createBookCopy(bookCopy);
@@ -99,7 +100,8 @@ public class LibraryService {
 
 	private List<Author> addAuthors(AddBookRequest addBookRequest) {
 		List<Author> authors = new ArrayList<>();
-		for (String authorName : addBookRequest.getAuthors()) {
+		List<String> bookAuthors = addBookRequest.getAuthors();
+		for (String authorName : bookAuthors) {
 			Author author = authorService.getAuthor(authorName);
 
 			if (author == null) {

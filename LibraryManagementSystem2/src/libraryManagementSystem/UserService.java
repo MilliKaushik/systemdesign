@@ -14,5 +14,4 @@ public class UserService {
 	public User getUser(Integer userId) {
 		return userDAO.getUser(userId);
 	}
-
 }
